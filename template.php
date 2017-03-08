@@ -5,9 +5,26 @@
         
         <div class="list_spaces_item">
         
-            <a href='<?php echo $space->singleUrl; ?>'>
-                <?php echo $space->name; ?>
-            </a>
+            
+            
+            <!--
+            <small>
+                <?php echo $space->type->name; ?>
+            </small>
+            -->
+            <p class="space-description">
+                <?php $this->maybePrintAvatar($space); ?>
+                
+                <a class="space-title" href='<?php echo $space->singleUrl; ?>'>
+                    <?php echo $space->name; ?>
+                </a>
+            
+                <?php echo $space->shortDescription; ?>
+            </p>
+            
+            <p class="meta">
+                <b>Dirección:</b> <?php echo $space->endereco; ?>
+            </p>
         
         </div>
         

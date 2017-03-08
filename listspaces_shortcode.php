@@ -14,7 +14,12 @@ class ListSpacesShortcode {
     function ListSpacesShortcode() {
     
         add_shortcode('list_spaces', array(&$this, 'shortcode'));
+        add_action( 'wp_enqueue_scripts', array(&$this, 'addCSS') );
         
+    }
+    
+    function addCSS() {
+        wp_enqueue_style( 'list-spaces-shortcode', plugin_dir_url( __FILE__ ) . '/list-spaces.css' );
     }
     
     function get_api_url() {
@@ -37,6 +42,14 @@ class ListSpacesShortcode {
     
     }
     
+    function maybePrintAvatar($space) {
+        
+        if (isset($space->{'@files:avatar.avatarMedium'}) && is_object($space->{'@files:avatar.avatarMedium'}) && isset($space->{'@files:avatar.avatarMedium'}->url)) {
+            echo "<img src='".$space->{'@files:avatar.avatarMedium'}->url."' />";
+        }
+        
+    }
+    
     function shortcode($atts, $content) {
 		
         //if (!is_array($atts)) return;
@@ -46,7 +59,7 @@ class ListSpacesShortcode {
         
         $params = [
             '@select' => 'id,name,shortDescription,En_Estado,singleUrl,type,endereco',
-            //'@files' => '(avatar.avatarMedium):url'
+            '@files' => '(avatar.avatarMedium):url'
         ];
         
         if (isset($atts['ids'])) {
