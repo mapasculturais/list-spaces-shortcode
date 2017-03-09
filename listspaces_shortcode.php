@@ -52,7 +52,7 @@ class ListSpacesShortcode {
     
     function shortcode($atts, $content) {
 		
-        //if (!is_array($atts)) return;
+        if (!is_array($atts)) return;
         
 		#$ids = $atts['ids'];
 		#$tag = $atts['tag'];
@@ -68,6 +68,14 @@ class ListSpacesShortcode {
         
         if (isset($atts['departamento'])) {
             $params['En_Estado'] = 'EQ(' . $atts['departamento'] . ')';
+        }
+        
+        if (isset($atts['tag'])) {
+            $params['term:tag'] = 'EQ(' . $atts['tag'] . ')';
+        }
+        
+        if (isset($atts['type'])) {
+            $params['type'] = 'EQ(' . $atts['type'] . ')';
         }
         
         $result = $this->getSpaces($params);
