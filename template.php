@@ -20,6 +20,10 @@
                 </a>
             
                 <?php echo $space->shortDescription; ?>
+                
+                <a class="vermas" href='<?php echo $space->singleUrl; ?>'>
+                        Ver más
+                </a>
             </p>
             
             <p class="meta">
