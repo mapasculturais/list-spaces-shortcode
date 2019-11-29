@@ -41,7 +41,7 @@ O ID do tipo
 [list_spaces type=30]
 ```
 
-consulte os ids dos tipo em: https://github.com/LibreCoopUruguay/mapasculturais-culturaenlinea/blob/master/space-types.php
+consulte os ids dos tipo em: https://github.com/mapasculturais/mapasculturais/blob/develop/src/protected/application/conf/space-types.php
 
 ### Combinando filtros
 
